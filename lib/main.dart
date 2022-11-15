@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
 
 void main() => runApp(const MyApp());
 
@@ -28,51 +30,122 @@ class MyStatelessWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
+          ElevatedButton(
+            style: TextButton.styleFrom(
+              textStyle: const TextStyle(fontSize: 20),
+              backgroundColor: Color(0xFFFFEB3B),
+              foregroundColor: Colors.red,
+            ),
+            child: const Text('RaisedButton'),
+            onPressed: () {
+              Fluttertoast.showToast(
+                  msg: "你按下RaisedButton",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.BOTTOM,
+                  timeInSecForIosWeb: 2,
+                  backgroundColor: Colors.black45,
+                  textColor: Colors.white,
+                  fontSize: 16.0);
+
+            },
+
+          ),
+
+          const SizedBox(height: 10),
+
           TextButton(
             style: TextButton.styleFrom(
               textStyle: const TextStyle(fontSize: 20),
+              backgroundColor: Color(0xFF1976D2),
+              foregroundColor: Colors.white,
             ),
-            onPressed: null,
-            child: const Text('Disabled'),
+            onPressed: () {
+              Fluttertoast.showToast(
+                  msg: "你按下FlatButton",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.BOTTOM,
+                  timeInSecForIosWeb: 2,
+                  backgroundColor: Colors.black45,
+                  textColor: Colors.white,
+                  fontSize: 16.0);
+            },
+            child: const Text('FlatButton'),
           ),
-          const SizedBox(height: 30),
-          TextButton(
+
+          const SizedBox(height: 10),
+
+          OutlinedButton(
             style: TextButton.styleFrom(
               textStyle: const TextStyle(fontSize: 20),
+              backgroundColor: Color(0xB3FFFFFF),
+              foregroundColor: Colors.black,
+              side: (BorderSide(width: 1, color: Color(0xFFF44336))),
             ),
-            onPressed: () {},
-            child: const Text('Enabled'),
+            onPressed: () {              Fluttertoast.showToast(
+                msg: "你按下OutlinedButton",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 2,
+                backgroundColor: Colors.black45,
+                textColor: Colors.white,
+                fontSize: 16.0);},
+            child: const Text('OutlineButton'),
           ),
-          const SizedBox(height: 30),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(4),
-            child: Stack(
-              children: <Widget>[
-                Positioned.fill(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: <Color>[
-                          Color(0xFF0D47A1),
-                          Color(0xFF1976D2),
-                          Color(0xFF42A5F5),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.all(16.0),
-                    textStyle: const TextStyle(fontSize: 20),
-                  ),
-                  onPressed: () {},
-                  child: const Text('Gradient'),
-                ),
-              ],
-            ),
+
+          const SizedBox(height: 10),
+
+          IconButton(
+            color: Colors.blue,
+            icon: Icon(Icons.phone_android),
+            onPressed: () {              Fluttertoast.showToast(
+                msg: "你按下IconButton",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 2,
+                backgroundColor: Colors.black45,
+                textColor: Colors.white,
+                fontSize: 16.0);},
           ),
+
+          const SizedBox(height: 10),
+
+          FloatingActionButton(
+            onPressed: () {
+              Fluttertoast.showToast(
+                msg: "你按下IconPhone",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 2,
+                backgroundColor: Colors.black45,
+                textColor: Colors.white,
+                fontSize: 16.0);
+            },
+            backgroundColor: Colors.blue,
+            child: const Icon(Icons.phone_android),
+
+          ),
+
+          const SizedBox(height: 10),
+
+          ElevatedButton.icon(
+              onPressed: () {
+                Fluttertoast.showToast(
+                    msg: "RaisedButton.icon",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 2,
+                    backgroundColor: Colors.black45,
+                    textColor: Colors.white,
+                    fontSize: 16.0);
+              },
+              style: TextButton.styleFrom(
+                textStyle: const TextStyle(fontSize: 20),
+                backgroundColor: Color(0xFF9E9E9E),
+                foregroundColor: Colors.red,
+              ),
+              icon: Icon(Icons.phone_android),
+              label: Text('RaisedButton.icon')),
+
         ],
       ),
     );
